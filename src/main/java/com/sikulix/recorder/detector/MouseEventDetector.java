@@ -10,14 +10,16 @@ import com.sikulix.recorder.event.ClickEvent;
 
 public class MouseEventDetector extends EventDetector {
 
-
-  public void callback(NativeMouseEvent e) {
-    ClickEvent event = new ClickEvent();
-    event.setX(e.getX()); // - region.getBounds().x);
-    event.setY(e.getY()); // - region.getBounds().y);
-    event.setButton(e.getButton());
-    event.setClickCount(e.getClickCount());
-    eventDetected(event);
+  public void callback(NativeInputEvent inputEvent) {
+    if (inputEvent instanceof NativeMouseEvent) {
+      NativeMouseEvent e = (NativeMouseEvent) inputEvent;
+      ClickEvent event = new ClickEvent();
+      event.setX(e.getX());
+      event.setY(e.getY());
+      event.setButton(e.getButton());
+      event.setClickCount(e.getClickCount());
+      eventDetected(event);
+    }
   }
 
   public void start() {

@@ -20,10 +20,7 @@ public class EventDetector extends NativeHookCallback{
 			writer.write(event);
 	}
 
-	public void callback(NativeInputEvent evt) {
-	}
-	
-	public void start(){		
+	public void start(){
 	}
 
 	public void stop(){		
